@@ -1,0 +1,55 @@
+SORTING ALGORITHIMS
+1. Selection Sort
+2. Bubble Sort
+3. Insertion Sort
+4. Merge Sort
+
+1. SELECTION SORT
+   Selection sort is a sorting algorithm that divides the input list into two parts:the sorted part and the unsorted part.
+   The algorithm repeatedly selects the smallest (or largest) element from the unsorted part and swaps it with the leftmost element of the unsorted part,
+   expanding the sorted part by one element. This process continues until the entire list is sorted.
+
+  ->  Selection sort has a time complexity of O(n^2), where n is the number of elements in the list. It is an in-place sorting algorithm,
+    meaning it does not require additional memory beyond the input list. However, it is not efficient for large lists.
+     (n-1) + (n-2) + ... + 2 + 1 = n(n-1)/2
+                                 = (n^2 - n) / 2  ~n^2
+  ->  Not stable ( means the same elements won't be placed in order)
+
+
+2. BUBBLE SORT
+   -> Bubble Sort is a simple comparison-based sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in the wrong order. 
+   -> Time Complexity
+      . worst and average case TC = O(n^2)
+      . Best case TC = O(n)(if the entire list is sorted, in first iteration there will be no swap, if there is no swap then the input list is sorted and
+                            the elemets of the input list will be iterate only once means total number of elements i.e. n times only )
+   -> inplace 
+   -> stable
+
+
+3. INSERTION SORT
+   -> Insertion Sort is a simple sorting algorithm that works by dividing the array into a sorted and an unsorted region.
+      It repeatedly selects an element from the unsorted region and inserts it into its correct position within the sorted region. 
+      This process is repeated until the entire array is sorted.
+   -> complexity
+      Time Complexity:
+      Worst case and average case :- O(N^2) 
+      Best case :- O(N)
+      Auxiliary Space: O(1)
+   -> Efficient for small data values, It can also be useful when the input array is almost sorted, and only a few elements are misplaced in a complete big array.
+   -> inplace
+   -> Stable
+   
+
+
+Sorting Algorithm	          Time Complexity	                   Space Complexity
+                  	Best Case	Average Case	Worst Case      	Worst Case
+Bubble Sort          	O(N)  	  O(N2)	        O(N2)	           O(1)
+Selection Sort       	O(N2)      O(N2)          O(N2)	           O(1)
+Insertion Sort       	O(N)       O(N2)	        O(N2)	           O(1)
+                        
+
+4. MERGE SORT
+   -> merge sort is a divide and conquer algorithm, also a recursive algorithms.
+   -> Commony used for sort the elements of an array or a list.
+   -> It recursively divides the input list/array into two halves, roughly of equal size, sorting each half separately. 
+      We continue this process until each part/subarray has only one element, merge the subarrays back together.

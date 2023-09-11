@@ -1,0 +1,6 @@
+WHat is function?
+ => Function is block of code that performs a specific task.
+    A function promote reusability of code and improve code maintainability of code.
+    If we wriiting a programme in which a particular task is repeating again and again,
+    then in that case we create a function (name could be anything), and we will use that function to perform that perticular tasks.
+     

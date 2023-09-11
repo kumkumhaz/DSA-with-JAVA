@@ -1,0 +1,33 @@
+What is Recursion?
+ => When a function calls itself until a specified condition is met.
+    And that specified condition is known as base condition.
+ => It is a phenomenon when a function calls itself indefinitely until a specified condition is fulfilled.
+
+What is base condition?
+ => A particulr condition after which the loof of the function calling will terminate or stop. 
+ => A recursive function can only be completed if a base condition is fulfilled
+
+What is recursion tree?
+ => A recursion tree is a visual representation of the execution flow of a recursive function.
+    It helps in understanding and analyzing the recursive process by illustrating the sequence of function calls and their relationships.
+ => A recursive tree is basically a representative form of recursion which depicts how functions 
+    are called and returned as a series of events happening consecutively. It is a pictorial
+    description of the process of recursion as illustrated below : 
+
+              f()
+              /
+            f()
+           /
+          f()
+         /
+       f()
+
+    When a recursive call gets completed, the control returns back to its parent function which is then further executed 
+    until the last function waiting in the recursive stack returns.   
+
+What is stackoverflow?
+ => Whenever recursion calls are executed, they’re simultaneously stored in a recursion stack where
+    they wait for the completion of the recursive function. A recursive function can only be completed
+    if a base condition is fulfilled and the control returns to the parent function. 
+    But, when there is no base condition given for a particular recursive function, it gets called indefinitely
+    which results in a Stack Overflow i.e, exceeding the memory limit of the recursion stack and hence the program terminates giving a Segmentation Fault error. 

@@ -1,0 +1,6 @@
+
+     HASHSET operation      |       ARRAYS operations   | Sorted Arrays Operations | Binary search tree
+                            |                           |                          | worst case | best case
+Insert/ add      - O(1)     | Add/Insert      - O(1)    | O(n)                     | O(h) / O(n)| 
+Search/contains  - O(1)     | Search/contains - O(n)    | O(logn)                  | O(h)/ O(n) | O(logn)
+Delete/remove    - O(1)     | Delete/Remove   - O(n^2)  | O(n)                     | O(h)/ O(n) |

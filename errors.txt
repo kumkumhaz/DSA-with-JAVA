@@ -1,0 +1,4 @@
+ java.lang.ArrayIndexOutOfBoundsException 
+ => occurs when we try to access an array using invalid idexing
+ => occurs because of incorrect indexing system                         
+

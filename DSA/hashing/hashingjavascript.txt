@@ -1,0 +1,135 @@
+/////////////////////////////////////////
+        HASHING
+
+ In computer science hashing is a very important concept. There are n number of problems and applications that depend on hashing.
+ In order to understand hashing, we need to first get clarity on the term encryption
+ENCRIPTION:-
+ It is the process of encoding information. We can transform a piece of data into another form which is not human understandable.
+ So encryption generally goes 2 ways , i.e. you can encrypt the data and then decrypt it as well.
+
+HASHING:-
+ > Before we understand about what is hashing, we need to understand that generally hashing is one way, i.e. we can hash the data,
+   but cannot retrieve original data back from the hash
+ > Hashing means mapping a large set of data into a smaller set of data.
+
+         _________                       _________
+         |   1   |                       |   1   |
+         |   2   |---------------------->|   2   |
+         |   3   |---------------------->|   3   |
+         |   .   |---------------------->|   .   |
+         |   .   |---------------------->|   .   |
+         |   .   |---------------------->|   .   |
+         |  10^9 |                       |  10^2 |
+         |_______|                       |_______|
+     large set of data               small set of data      
+
+   Above image , this is how we map a large set of data into a small set of data, for mapping we use a machanism called hash function.
+ 
+   1. HASH FUNCTION:
+      let a function y = f(x)
+      then "f" is called the hash function which takes "x" as the input which is a data value from larger set  and returns a value "y"
+      which belongs to smaller set.
+
+      There can be different implementaion of hash function 
+      ex:-  f(x) = x%100;
+            x = 88 -> f(88) = 199%100 = 88
+            f(188) = f(288) = f(388)...= 88 -> collision
+      > COLLISION:
+        In hashing if two or more values are mapped to a same value 
+        - example of hash function:
+          . f(x) = x%m
+          . Polynamial hash function 
+            -> for some value of x and machanism = f(1234) = (1x^3 + 2x^2 + 5x + 7) % m
+                                                       |
+                                                       |--> String
+          . djb2 hashing = read at http://www.cse.yorku.ca/~oz/hash.html
+HOW TO AVOID COLLISION?
+   If we try to make a strong hash function then we can reduce the possibility of collision.
+   And here are few mechanism to avoid collision to some extent.
+   1. Open Addressing
+      I. Linear probing
+      II. Quadratic probing
+      III. Double hashing
+   2. Separate chaining
+
+   1. OPEN ADDRESSING:
+      -> In open Addressing whenever collision happens, we try to find a new mapping for the value.
+      I. Linear probing:
+         -> It does a sequential search in case of collision to find an available mapping. If we got a mapped value i,
+            and there is already a value mapped to i, the we search for availability of i + 1 then i + 2 then i + 3 and so on.
+               f(x) = x % 10
+               x = 77 ==> 77 % 10 = 7                  77 -> 7(77 is mapped with 7)
+               x = 18 ==> 18 % 10 = 8                  18 -> 8(18 is mapped with 8)
+               x = 777 ==> 777 % 10 = 7 -> collision   777 ->7 (here 77 is already mapped with 7 , so we can not map 777 with 7, in this case we start
+                                                        linear probing and check is 7 free => no, is 8 free => no , is 9 free => yes, now we map 777 with 9 )
+      
+      II. Quadratic probing:
+         -> It does a Quadratic jump based search in case of collision to find an available mapping. If we got a mapped value i,
+            and there is already a value mapped to i, the we search for availability of i + 1^2 then i + 2^2 then i + 3^2 and so on.
+
+      III. Double hashing:
+           -> We keep 2 hash function, h1 and h2, we first try to use h1 and get a mapped value say i, if i is already mapped to some 
+              other value then we search for i + h2(x) then i + 3*h2(x) then i + 3*h2(x) and so on.
+
+
+   2. Separate chaining: same as rehashing
+
+
+HOW CAN WE IMPLEMENT HASHMAP / DICT / JS OBJECT, MAP
+  > Internally hashmap is based on the concept of hashing and it is implemented in the form of array of linked list.
+    There is a primary array of length x and every index might contain a linked list.
+  > The actual values stored inside hashmap are <key, value> pairs.
+  > To stored these key value pairs we pass the key through the hash function, Which returns us a bucket index.
+    This bucket index of the array on which we will add this <key, value> pair as the node of a linked list.
+
+ Now we know how to store, but how can we retrieve the value for the key?
+   -> We can again pass the key into the hash function, get the bucket index, and then do a linear search on the linked list.
+     
+     The fact is that we will keep linked lists of extremely small size. This will make linear search almost constant.
+     How will we do it?
+      So two things are going to help us:
+       . Lambda factor
+       . Rehashing
+
+    LAMBDA FACTOR/ LOAD FACTOR:
+      It is ratio of the total number of nodes present in the array of linked list divided by the size of the array.
+
+      WHAT IS THE SIGNIFICANCE OF THE LAMBDA FACTOR?
+       Total number of nodes in the array of linked list represents total number of element(<key, value>) inserted in the hashmap.
+       Size of the array represents, the max number of entries we could have taken without collision.
+       So the ratio of the total number of elements to the size of the array, denotes how much the hashmap is filled?
+       So lambda factor represents how much the array is filled w.r.t it's capacity.
+
+         λ = (number of elements inserted) / (size of hashmap)
+         1.0 >= λ >= 0.5 
+         
+    REHASHING:-
+     NOTE:- In hashmap when we decide a hash function, whenever ash function we take, we do a modulo by the size of the array.
+     > In rehashing, whenever we hit a condition where the ratio of the number of elements inserted to the size of the array, exceed lambda factor,
+      
+       We create a new array of size double the previous , then insert all the elements of the prevous array of LL, to this new double sized array
+       of linked list, but to insert the prev values, we again make them go throughthe hash function's modulo  will also be doubled.
+
+What if the keys are strings? WHat kind of hash function will work here?
+here we can use polynomial hash 
+f(adg) = (|a|*x^2 + |d|*x + |g|) % m 
+where |a| is the ascii value of a
+|d| is the asci value of d
+ and so on 
+ we can keep coefficients of th epolynomial as the ascii of the characters.
+
+
+ MODULO ARITHMATIC
+ I.(a+b) % c = (a%c + b%c) %c =>
+    (7+2)%4 -> ((7%4) + (2%4))%4
+     9 % 4  ->   (3   +    2) % 4
+        1   ->    5 % 4
+        1    =     1
+
+ II. (a-b) % c = (a%c -b%c +c) %c
+ III. (a*b) % c = (a%c * b%c) %c
+ IV. 
+
+APPLICATION OF HASHING:-
+  In programming languages we have things like hashtable(java), dictionary(python), object(JS),etc are based on the concept of hashing.
+

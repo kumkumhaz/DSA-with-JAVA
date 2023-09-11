@@ -1,0 +1,81 @@
+Scope of variable in JAVA
+
+Scope -> Region from where a variable can be accessed
+      - In one Scope we can't declare two variables of same name
+
+
+1 CLASS LEVEL Scope
+  class Algebra{
+    int a = 10;   ------> member variable
+    int b = 4;    ------> member variable
+     
+     int sum(){
+        return a+b;
+     }
+
+     int sub(){
+        return a-b;
+     }
+  }
+
+Member variables can be accessed anywhere because they are in the class level scope;
+
+2. METHOD LEVEL SCOPE OF VARIABLES
+  These are the variables that are declatred inside the method and cannot be accessed outside the method
+
+    class Algebra{
+ 
+
+     int sub(){
+        int x = 100;
+        int y = 10;
+        return a-b;
+     }
+     
+     int sum(){
+        return x+y; -----> this will give error because we cannot aceess method level variable outsifde the method, can be accessed only in the method in which they are declared.
+     }
+  }
+
+3. BLOCK LEVEL SCOPE OF VARIABLES
+   These are variables that are declared inside the pair of brackets '{' and '}'
+
+   package OOPs.Scope;
+
+class Algebra {
+    void demo(){
+        int a = 10;
+        System.out.println(a);
+    }
+
+    //System.out.println(b);
+    
+    {                              |
+        int b = 30;                |
+        System.out.println(b);     |--------> instance initializer block
+    }                              |
+
+    //  System.out.println(b);
+
+    {                              |
+        int c = 30;                |
+        System.out.println(c);     |--------> instance initializer block
+    }                              |
+}
+public class blockLevel{
+    public static void main(String[] args) {
+        Algebra obj = new Algebra();
+        obj.demo();
+    }
+}
+
+output :-
+ 10
+ 20
+ 30
+
+ the outputs are not in order because b and c are in instance initializer blocks,
+ The instance initializer blocks are executed in the order in which they appear in the class, 
+ before the constructor of the class is executed. In other words, the instance initializer blocks 
+ are executed when an object of the class is created, but before the constructor of the class is called.
+

@@ -1,0 +1,20 @@
+CLASS:-
+      - User defined blueprint
+      - Blueprint/templates of real life/world entity
+      - A class defines the properties and behaviors that an object class can have.
+OBJECT:- 
+      - Instance of a class
+      - real world entity
+       
+
+To create a class we need 
+- access modifiers
+- Class keyword
+- Class name
+- Body name
+
+1/. ACCESS MODIFIERS
+    I. Public
+    II. Private
+    III. Protected
+    IV. default

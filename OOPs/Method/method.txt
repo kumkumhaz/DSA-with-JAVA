@@ -1,0 +1,79 @@
+JAVA METHOD:
+ - Block of code performing some action which runs only when it is called.
+
+ METHOD VS FUNCTION
+  - both are similar concept
+
+  METHODS
+    indirectly we can say that function inside a class is known as method;
+     - In OPPs,  a method is a function that is associated with a clas or an object.
+     - it defines a behavior that the object can perform.
+     - Called using .(dot) notation followed by class name
+      
+
+      public class Rectangle { --------> class name Rectangle
+         private int width;
+         private int height;
+
+         public Rectangle(int width, int height) {
+             this.width = width;
+             this.height = height;
+         }
+
+         public int area() {  ------> method name area
+             return width * height;
+         }
+       }
+
+       Rectangle rect = new Rectangle(5, 10); -----> new object
+       int area = rect.area(); // returns 50  -----> calling method "area" followed by class name"Rectangle"
+
+WHY WE USE METHOD?
+ - Write once , use many times
+ - Time save
+ - Duplicate code reduces.
+
+TYPES OF METHODS
+ 1. User-Defined METHODS
+    - Method created by users
+    - In above example we seen that method "area()" was created by us which was user-defined method
+
+ 2. Standard library METHODS
+    - Inbuilt methods in JAVA
+      . String.length(): Returns the length of a string.
+      . String.toLowerCase() and String.toUpperCase(): Converts a string to all lowercase or uppercase.
+      . Arrays.sort(): Sorts an array of elements in ascending order.
+      . Math.sqrt(): Returns the square root of a number.
+      . Math.random(): Generates a random number between 0 and 1.
+      . System.out.println(): Prints a string to the console.
+      . Scanner.nextLine(): Reads a line of input from the console.
+      . File.exists(): Returns true if a file exists.
+      . ArrayList.add(): Adds an element to an ArrayList.
+      . HashMap.put(): Adds a key-value pair to a HashMap.
+
+HOW TO DECLARE METHOD
+
+      access modifiers          return type          function/method name (   parameyters){
+          |                         |                        |
+    (Public, private,        (data type, void)    (anything whatever we want)
+    protected, default)
+     
+        return (a+b);
+
+      }
+
+ ->   we can call above function along with the object name
+      ex;
+          public int area() {  ------> method name area
+             return width * height;
+             }
+          Rectangle rect = new Rectangle(5, 10); -----> new object
+             int area = rect.area();  
+
+ ->   If we use static keyword, then we can call the function/method witout object
+      ex; 
+      static void welcome(){
+        System.out.println("welcome to my home")
+      }
+      welcome();  -----> caling the function
+

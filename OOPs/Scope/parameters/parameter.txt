@@ -1,0 +1,11 @@
+FORMAL PARAMETERS/ARGUMENTS AND ACTUAL PARAMETERS/ARGUMENTS
+
+- Defined during the function definition
+ex:
+
+ static int sum (int a, int b){  ------>here we are passing formal parameters 
+    return a+b;
+ }
+  sum(5,6)
+  sum(x,y) ------> actual parameters
+

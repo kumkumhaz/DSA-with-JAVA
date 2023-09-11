@@ -1,0 +1,9 @@
+Sctual parameters 
+ we can pass actual parameters in two ways 
+ 1. pass by value  
+    - Copies the values of actual parameters
+    - Called function creates its own Copies
+
+ 2. pass by reference
+    - Passes the parameters as reference (address).
+    - Called function doesn't create its own Copies
